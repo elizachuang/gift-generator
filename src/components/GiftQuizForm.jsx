@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { BUDGETS, INTERESTS, OCCASIONS, RECIPIENTS } from '../data/options.js'
 import ChoiceGroup from './ChoiceGroup.jsx'
 import './GiftQuizForm.css'
@@ -18,10 +18,18 @@ function recipientOptionsFor(occasion) {
     : RECIPIENTS.filter((recipient) => recipient.id !== 'new-parent')
 }
 
-function GiftQuizForm({ initialAnswers, onSubmit }) {
+function GiftQuizForm({ initialAnswers, onSubmit, focusOnMount = false }) {
   const [answers, setAnswers] = useState({ ...EMPTY_ANSWERS, ...initialAnswers })
   const [errors, setErrors] = useState({})
   const formRef = useRef(null)
+
+  // When coming back from the results, put keyboard focus on the first question.
+  useEffect(() => {
+    if (!focusOnMount) return
+    const occasionInputs = formRef.current.querySelectorAll('input[name="occasion"]')
+    const checked = [...occasionInputs].find((input) => input.checked)
+    ;(checked ?? occasionInputs[0])?.focus()
+  }, [focusOnMount])
 
   function update(name, value) {
     setAnswers((previous) => {

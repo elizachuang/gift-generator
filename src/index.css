@@ -30,3 +30,33 @@ body {
   outline: 3px solid #0969da;
   outline-offset: 2px;
 }
+
+/* Hides text visually but keeps it for screen readers. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Outlined button for secondary actions such as "Change answers". */
+.secondary-button {
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border: 1px solid #0969da;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #0969da;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.secondary-button:hover {
+  background-color: #ddf4ff;
+}

@@ -27,7 +27,7 @@ How I got here: the brief names three pains (unknown tastes, tight budget, fear 
    - Budget (euro price bands: under €20, €20–50, €50–100, €100+)
    - _(Optional 4th question)_ One interest ("I don't know" is allowed). This goes straight at "I don't know what they like".
 3. **Results:** 3–6 gift cards. Each card shows name, price, **"why it feels special"**, and a **"View / buy" link** that opens the retailer in a new tab.
-4. **Adjust:** "Change answers" goes back to the form with the answers kept. If nothing matches, an empty state offers to widen the budget or drop the interest.
+4. **Adjust:** "Change answers" goes back to the form with the answers kept. If nothing matches, an empty state explains it and offers "Change answers". (Interest never filters and every allowed combination has at least one gift, so this is a safety net.)
 
 **Success = the user clicks at least one "buy" link.**
 
@@ -63,7 +63,7 @@ No environment variables or secrets are needed, because nothing calls a paid or 
   - `ChoiceGroup`: one reusable labelled radio group, used for occasion, recipient, budget and interest (keyboard-accessible because it's built on native radios)
 - `GiftList`: renders the cards, or an empty state
 - `GiftCard`: name, price, "why it feels special", tags, buy link
-- `EmptyState`: "No exact match" plus "Widen budget" and "Ignore interest" buttons
+- `EmptyState`: "No exact match" plus a "Change answers" button
 - `ErrorMessage`: a form validation message (e.g. "Please pick a budget")
 
 **Logic (no UI):**
@@ -114,7 +114,7 @@ Matching rule (simple and explainable): a gift must match the occasion, the budg
 | M1  | Gift data: 30+ hand-picked gifts (49 as of M2) in `gifts.json` covering every occasion × budget band | A test checks that every gift has the required fields and a non-empty search query, and that each occasion × budget pair has ≥ 1 gift |
 | M2  | Matching logic in `findGifts.js`                                                                     | Unit tests cover exact match, no match, "I don't know" interest, and sort order                                                       |
 | M3  | Question form (`GiftQuizForm`, `ChoiceGroup`)                                                        | You can fill it by keyboard only, every input has a label, and submitting without an answer shows an error                            |
-| M4  | Results (`GiftList`, `GiftCard`, `EmptyState`)                                                       | A component test checks that the right cards render; the empty state shows and its buttons widen the search                           |
+| M4  | Results (`GiftList`, `GiftCard`, `EmptyState`)                                                       | A component test checks that the right cards render; the empty state shows and leads back to the form                                 |
 | M5  | Responsive and accessibility pass                                                                    | Checked at 375px and 1280px wide, visible focus rings, Lighthouse accessibility ≥ 90                                                  |
 | M6  | Deploy to free static hosting                                                                        | A public URL works on a phone                                                                                                         |
 | M7  | 5 user tests (see section 8)                                                                         | Each tester finds ≥ 1 gift they'd buy, or we learn why not                                                                            |
