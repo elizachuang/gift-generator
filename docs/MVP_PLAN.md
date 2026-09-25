@@ -152,6 +152,7 @@ Matching rule (simple and explainable): a gift must match the occasion, the budg
 - Market: Netherlands, Belgium, Germany
 - Buy links: Google Shopping search
 - Site language: English
+- Hosting: Netlify (free tier, works with the private repo; production branch `main`; settings in `netlify.toml`)
 
 **Risk from the link choice:** a Google Shopping search can show unrelated or off-budget items. _Mitigation:_ write specific search queries, and in the user tests (M7) check that a tester can reach a buyable product within 1–2 clicks. If they can't, switch to bol.com/amazon.de links.
 
