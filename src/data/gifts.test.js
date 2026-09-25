@@ -6,9 +6,8 @@ const ids = (options) => options.map((option) => option.id)
 const inBudget = (gift, budget) => gift.price >= budget.min && gift.price < budget.max
 
 describe('gifts.json', () => {
-  it('has between 30 and 40 gifts', () => {
+  it('has at least 30 gifts', () => {
     expect(gifts.length).toBeGreaterThanOrEqual(30)
-    expect(gifts.length).toBeLessThanOrEqual(40)
   })
 
   it('uses a unique id for every gift', () => {

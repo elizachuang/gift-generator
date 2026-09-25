@@ -92,7 +92,7 @@ Buy link: `https://www.google.com/search?tbm=shop&q=<searchQuery, URL-encoded>`,
 
 Quiz answers are kept only in the page's state (in memory). Nothing is saved.
 
-Matching rule (simple and explainable): a gift must match the occasion and the budget. Recipient and interest add to its score. Results are sorted by score, and gifts near the top of the budget come first, which goes at "don't want it to look cheap".
+Matching rule (simple and explainable): a gift must match the occasion, the budget and the recipient (a gift that doesn't suit the person is never shown). Interest adds to its score; with "I don't know", general gifts tagged `any` rank first. Results are sorted by score, and gifts near the top of the budget come first, which goes at "don't want it to look cheap".
 
 ## 6. Not building yet
 
@@ -108,16 +108,16 @@ Matching rule (simple and explainable): a gift must match the occasion and the b
 
 ## 7. Build plan (small, testable milestones)
 
-| #   | Milestone                                                                                   | Done when                                                                                                                             |
-| --- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| M0  | Project setup: Vite + React, oxlint, Prettier, Vitest; add the real commands to `CLAUDE.md` | `npm run lint`, `npm run format:check` and `npm test` all pass on an empty app                                                        |
-| M1  | Gift data: 30–40 hand-picked gifts in `gifts.json` covering every occasion × budget band    | A test checks that every gift has the required fields and a non-empty search query, and that each occasion × budget pair has ≥ 1 gift |
-| M2  | Matching logic in `findGifts.js`                                                            | Unit tests cover exact match, no match, "I don't know" interest, and sort order                                                       |
-| M3  | Question form (`GiftQuizForm`, `ChoiceGroup`)                                               | You can fill it by keyboard only, every input has a label, and submitting without an answer shows an error                            |
-| M4  | Results (`GiftList`, `GiftCard`, `EmptyState`)                                              | A component test checks that the right cards render; the empty state shows and its buttons widen the search                           |
-| M5  | Responsive and accessibility pass                                                           | Checked at 375px and 1280px wide, visible focus rings, Lighthouse accessibility ≥ 90                                                  |
-| M6  | Deploy to free static hosting                                                               | A public URL works on a phone                                                                                                         |
-| M7  | 5 user tests (see section 8)                                                                | Each tester finds ≥ 1 gift they'd buy, or we learn why not                                                                            |
+| #   | Milestone                                                                                            | Done when                                                                                                                             |
+| --- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| M0  | Project setup: Vite + React, oxlint, Prettier, Vitest; add the real commands to `CLAUDE.md`          | `npm run lint`, `npm run format:check` and `npm test` all pass on an empty app                                                        |
+| M1  | Gift data: 30+ hand-picked gifts (49 as of M2) in `gifts.json` covering every occasion × budget band | A test checks that every gift has the required fields and a non-empty search query, and that each occasion × budget pair has ≥ 1 gift |
+| M2  | Matching logic in `findGifts.js`                                                                     | Unit tests cover exact match, no match, "I don't know" interest, and sort order                                                       |
+| M3  | Question form (`GiftQuizForm`, `ChoiceGroup`)                                                        | You can fill it by keyboard only, every input has a label, and submitting without an answer shows an error                            |
+| M4  | Results (`GiftList`, `GiftCard`, `EmptyState`)                                                       | A component test checks that the right cards render; the empty state shows and its buttons widen the search                           |
+| M5  | Responsive and accessibility pass                                                                    | Checked at 375px and 1280px wide, visible focus rings, Lighthouse accessibility ≥ 90                                                  |
+| M6  | Deploy to free static hosting                                                                        | A public URL works on a phone                                                                                                         |
+| M7  | 5 user tests (see section 8)                                                                         | Each tester finds ≥ 1 gift they'd buy, or we learn why not                                                                            |
 
 ## 8. Risks, assumptions, questions to validate
 

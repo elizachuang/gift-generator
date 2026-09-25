@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import gifts from '../data/gifts.json'
-import { BUDGETS, OCCASIONS } from '../data/options.js'
+import { BUDGETS, OCCASIONS, RECIPIENTS } from '../data/options.js'
 import { findGifts, MAX_RESULTS } from './findGifts.js'
 
 // Small made-up gifts so each test is easy to follow.
@@ -49,16 +49,16 @@ describe('findGifts', () => {
     ])
   })
 
-  it('ranks gifts for the chosen recipient first', () => {
+  it('only returns gifts that suit the chosen recipient', () => {
     const testGifts = [
-      makeGift('for-close', { recipients: ['close'], price: 45 }),
-      makeGift('for-coworker', { recipients: ['coworker'], price: 25 }),
+      makeGift('for-close', { recipients: ['close'] }),
+      makeGift('for-coworker', { recipients: ['coworker'] }),
     ]
     const result = findGifts(
       { occasion: 'birthday', budget: '20-50', recipient: 'coworker' },
       testGifts,
     )
-    expect(idsOf(result)).toEqual(['for-coworker', 'for-close'])
+    expect(idsOf(result)).toEqual(['for-coworker'])
   })
 
   it('ranks gifts matching a known interest first', () => {
@@ -105,13 +105,20 @@ describe('findGifts', () => {
     expect(idsOf(testGifts)).toEqual(['a', 'b'])
   })
 
-  // Uses the real gift list: every occasion and budget should give at least one idea.
-  const pairs = OCCASIONS.flatMap((occasion) => BUDGETS.map((budget) => ({ occasion, budget })))
-  it.each(pairs)(
-    'finds at least one real gift for $occasion.label at $budget.label',
-    ({ occasion, budget }) => {
-      const result = findGifts({ occasion: occasion.id, budget: budget.id }, gifts)
-      expect(result.length).toBeGreaterThanOrEqual(1)
+  // Uses the real gift list: every sensible combination should give at least one idea.
+  // "Baby or new parent" is only a sensible recipient for a baby shower.
+  const combos = OCCASIONS.flatMap((occasion) =>
+    BUDGETS.flatMap((budget) =>
+      RECIPIENTS.filter(
+        (recipient) => recipient.id !== 'new-parent' || occasion.id === 'baby-shower',
+      ).map((recipient) => ({ occasion, budget, recipient })),
+    ),
+  )
+  it.each(combos)(
+    'finds a real gift for $occasion.label, $budget.label, $recipient.label',
+    ({ occasion, budget, recipient }) => {
+      const answers = { occasion: occasion.id, budget: budget.id, recipient: recipient.id }
+      expect(findGifts(answers, gifts).length).toBeGreaterThanOrEqual(1)
     },
   )
 })

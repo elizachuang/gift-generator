@@ -416,5 +416,126 @@
     "recipients": ["close", "coworker"],
     "interests": ["music", "tech", "travel"],
     "searchQuery": "noise cancelling over ear headphones"
+  },
+  {
+    "id": "gourmet-food-hamper",
+    "name": "Gourmet food hamper",
+    "description": "A basket of local cheeses, crackers, chocolate and preserves.",
+    "whySpecial": "Feels generous and works for anyone, even if you barely know their taste.",
+    "price": 60,
+    "occasions": ["birthday", "christmas", "housewarming", "farewell"],
+    "recipients": ["close", "coworker", "acquaintance"],
+    "interests": ["cooking", "any"],
+    "searchQuery": "gourmet food gift hamper"
+  },
+  {
+    "id": "reed-diffuser-candle-set",
+    "name": "Reed diffuser and candle set",
+    "description": "A matching home fragrance set in an elegant gift box.",
+    "whySpecial": "Makes their space smell lovely every day, a quiet reminder of you.",
+    "price": 55,
+    "occasions": ["housewarming", "birthday", "christmas", "farewell"],
+    "recipients": ["close", "coworker", "acquaintance"],
+    "interests": ["wellness", "any"],
+    "searchQuery": "luxury reed diffuser candle gift set"
+  },
+  {
+    "id": "premium-gift-hamper",
+    "name": "Premium gift hamper",
+    "description": "A large hamper of fine foods, tea and treats.",
+    "whySpecial": "A generous group gift the whole team or neighbourhood can chip in for.",
+    "price": 120,
+    "occasions": ["christmas", "housewarming", "birthday", "farewell"],
+    "recipients": ["close", "coworker", "acquaintance"],
+    "interests": ["cooking", "coffee-tea", "any"],
+    "searchQuery": "premium luxury gift hamper"
+  },
+  {
+    "id": "restaurant-voucher",
+    "name": "Restaurant voucher",
+    "description": "A voucher for a well-loved local restaurant.",
+    "whySpecial": "A relaxed dinner out on you. Add a note recommending your favourite dish.",
+    "price": 70,
+    "occasions": ["farewell", "birthday", "christmas"],
+    "recipients": ["close", "coworker", "acquaintance"],
+    "interests": ["cooking", "any"],
+    "searchQuery": "restaurant gift voucher"
+  },
+  {
+    "id": "stemless-glasses-set",
+    "name": "Set of stemless glasses",
+    "description": "A set of four sturdy, elegant stemless glasses.",
+    "whySpecial": "Perfect for toasting their new home with the first guests.",
+    "price": 35,
+    "occasions": ["housewarming", "christmas"],
+    "recipients": ["close", "coworker", "acquaintance"],
+    "interests": ["cooking", "any"],
+    "searchQuery": "stemless glasses set of 4"
+  },
+  {
+    "id": "baby-sock-set",
+    "name": "Baby sock gift set",
+    "description": "A set of soft, non-slip baby socks in a gift box.",
+    "whySpecial": "Tiny and sweet, and parents always run out of socks.",
+    "price": 12,
+    "occasions": ["baby-shower"],
+    "recipients": ["new-parent", "close", "coworker", "acquaintance"],
+    "interests": ["any"],
+    "searchQuery": "baby socks gift set"
+  },
+  {
+    "id": "wooden-rattle-teether",
+    "name": "Wooden rattle and teether set",
+    "description": "Natural wood and silicone toys, safe for little hands and mouths.",
+    "whySpecial": "Beautiful, plastic-free toys that parents are happy to keep out on display.",
+    "price": 25,
+    "occasions": ["baby-shower"],
+    "recipients": ["new-parent", "close", "coworker", "acquaintance"],
+    "interests": ["any"],
+    "searchQuery": "wooden baby rattle teether set"
+  },
+  {
+    "id": "baby-gift-basket",
+    "name": "New baby gift basket",
+    "description": "A basket with a soft toy, blanket, bodysuit and care products.",
+    "whySpecial": "Covers the first weeks' essentials in one thoughtful package.",
+    "price": 55,
+    "occasions": ["baby-shower"],
+    "recipients": ["new-parent", "close", "coworker", "acquaintance"],
+    "interests": ["any"],
+    "searchQuery": "new baby gift basket"
+  },
+  {
+    "id": "baby-monitor",
+    "name": "Video baby monitor",
+    "description": "A camera and screen so parents can check on the baby from another room.",
+    "whySpecial": "Gives parents peace of mind. A great group gift from colleagues or friends.",
+    "price": 120,
+    "occasions": ["baby-shower"],
+    "recipients": ["new-parent", "close", "coworker", "acquaintance"],
+    "interests": ["tech", "any"],
+    "searchQuery": "video baby monitor"
+  },
+  {
+    "id": "baby-play-gym",
+    "name": "Baby play gym mat",
+    "description": "A padded play mat with hanging toys for tummy time.",
+    "whySpecial": "Something the baby will use daily in the first months.",
+    "price": 65,
+    "occasions": ["baby-shower"],
+    "recipients": ["new-parent", "close", "coworker"],
+    "interests": ["any"],
+    "searchQuery": "baby play gym mat"
+  },
+  {
+    "id": "desk-plant-and-card",
+    "name": "Desk plant with a team card",
+    "description": "A small plant for their new desk, plus a card signed by the team.",
+    "whySpecial": "The signed card turns a small plant into a warm goodbye.",
+    "price": 25,
+    "occasions": ["farewell"],
+    "recipients": ["coworker", "acquaintance"],
+    "interests": ["plants", "any"],
+    "searchQuery": "small desk plant gift"
   }
 ]
