@@ -1,9 +1,0 @@
-# Netlify build settings. Netlify reads this file automatically.
-[build]
-  # Run formatting, lint and tests first, so a broken version is never published.
-  command = "npm run check && npm run build"
-  publish = "dist"
-
-[build.environment]
-  # Vite needs Node.js 20.19 or newer.
-  NODE_VERSION = "22"

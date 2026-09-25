@@ -154,7 +154,7 @@ Matching rule (simple and explainable): a gift must match the occasion, the budg
 - Buy links: Google Shopping search
 - Site language: English
 - Look: playful and bright. Colour and font tokens live in `src/index.css`; the fonts (Fredoka, Nunito) are self-hosted; the illustrations in `src/illustrations/` are original SVGs
-- Hosting: Netlify (free tier, works with the private repo; production branch `main`; settings in `netlify.toml`)
+- Hosting: GitHub Pages (free for the public repo) at https://elizachuang.github.io/gift-generator/, deployed by `.github/workflows/deploy.yml` on every push to `main`
 
 **Risk from the link choice:** a Google Shopping search can show unrelated or off-budget items. _Mitigation:_ write specific search queries, and in the user tests (M7) check that a tester can reach a buyable product within 1–2 clicks. If they can't, switch to bol.com/amazon.de links.
 

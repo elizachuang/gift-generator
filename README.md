@@ -3,7 +3,7 @@
 [![check](https://github.com/elizachuang/gift-generator/actions/workflows/check.yml/badge.svg)](https://github.com/elizachuang/gift-generator/actions/workflows/check.yml)
 
 Stuck on what to give for a birthday, baby shower, colleague farewell, housewarming or Christmas?
-Answer 3 quick questions (occasion, who it's for, budget) and get thoughtful gift ideas that fit your budget,
+**[Try it here](https://elizachuang.github.io/gift-generator/)**: answer 3 quick questions (occasion, who it's for, budget) and get thoughtful gift ideas that fit your budget,
 each with a note on **why it feels special** and a link to find it in shops.
 
 <img src="docs/screenshot.png" alt="Results screen on a phone: '6 gift ideas for you' with a highlighted Best match card" width="320">
@@ -59,10 +59,12 @@ The same check runs automatically on every pull request (GitHub Actions, `.githu
 
 ## Deploying
 
-The site is hosted on [Netlify](https://www.netlify.com/). Build settings live in `netlify.toml`:
-Netlify runs `npm run check && npm run build` and publishes the `dist` folder.
-Every merge to `main` updates the live site. If the checks fail, the old version stays online.
-No environment variables or secrets are needed.
+The site is published with [GitHub Pages](https://pages.github.com/) at
+**https://elizachuang.github.io/gift-generator/**.
+
+Every merge to `main` runs `.github/workflows/deploy.yml`: it runs `npm run check`, builds the site and publishes it.
+If the checks fail, nothing is published and the previous version stays online.
+Progress and errors are shown in the repo's **Actions** tab. No environment variables or secrets are needed.
 
 ## Copyright
 
