@@ -1,14 +1,39 @@
 /* Global styles. Mobile-first: base styles target small screens. */
+
+/* Design tokens: change the look of the whole site here.
+   Every text/background pair is checked for WCAG AA contrast (see the M5 notes in the PR). */
 :root {
-  font-family:
-    system-ui,
-    -apple-system,
-    'Segoe UI',
-    Roboto,
-    sans-serif;
+  --color-bg: #fff8f0;
+  --color-surface: #ffffff;
+  --color-text: #2b2140;
+  --color-muted: #5c5470;
+  --color-primary: #c2255c;
+  --color-primary-hover: #9c1c4a;
+  --color-primary-soft: #ffe3ec;
+  --color-accent: #ffc83d; /* backgrounds and badges only, never text */
+  --color-accent-dark: #e0a800;
+  --color-accent-soft: #fff4cc;
+  --color-teal: #0f766e;
+  --color-teal-soft: #d7f3ef;
+  --color-teal-text: #0b5750;
+  --color-border: #7a6f8a;
+  --color-card-border: #f0e2d6;
+  --color-error: #b3121e;
+  --color-focus: #3b2a8f;
+
+  --font-body: 'Nunito Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Fredoka Variable', var(--font-body);
+
+  --radius: 12px;
+  --radius-large: 24px;
+  --shadow: 0 2px 8px rgb(43 33 64 / 8%);
+  --shadow-raised: 0 8px 20px rgb(43 33 64 / 14%);
+  --page-width: 44rem;
+
+  font-family: var(--font-body);
   line-height: 1.5;
-  color: #1f2328;
-  background-color: #ffffff;
+  color: var(--color-text);
+  background-color: var(--color-bg);
 }
 
 * {
@@ -19,15 +44,23 @@ body {
   margin: 0;
 }
 
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
 .app {
-  max-width: 40rem;
+  max-width: var(--page-width);
   margin: 0 auto;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 1rem 3rem;
 }
 
 /* Visible focus ring for keyboard users. */
 :focus-visible {
-  outline: 3px solid #0969da;
+  outline: 3px solid var(--color-focus);
   outline-offset: 2px;
 }
 
@@ -44,19 +77,52 @@ body {
   border: 0;
 }
 
+/* Filled button for the main action on a screen. */
+.primary-button {
+  min-height: 48px;
+  padding: 0.75rem 1.75rem;
+  border: none;
+  border-radius: 999px;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.primary-button:hover {
+  background-color: var(--color-primary-hover);
+}
+
 /* Outlined button for secondary actions such as "Change answers". */
 .secondary-button {
   min-height: 44px;
-  padding: 0.5rem 1rem;
-  border: 1px solid #0969da;
-  border-radius: 8px;
-  background-color: #ffffff;
-  color: #0969da;
+  padding: 0.5rem 1.25rem;
+  border: 2px solid var(--color-primary);
+  border-radius: 999px;
+  background-color: var(--color-surface);
+  color: var(--color-primary);
   font: inherit;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
 }
 
 .secondary-button:hover {
-  background-color: #ddf4ff;
+  background-color: var(--color-primary-soft);
+}
+
+/* Small motion, only for people who haven't asked their device to reduce motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .primary-button,
+  .secondary-button {
+    transition:
+      background-color 150ms ease,
+      transform 150ms ease;
+  }
+
+  .primary-button:hover,
+  .secondary-button:hover {
+    transform: translateY(-1px);
+  }
 }

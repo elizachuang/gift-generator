@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { BUDGETS, OCCASIONS, RECIPIENTS } from '../data/options.js'
+import { matchTags } from '../logic/matchTags.js'
 import GiftList from './GiftList.jsx'
 import './ResultsPage.css'
 
@@ -29,13 +30,17 @@ function ResultsPage({ answers, gifts, onChangeAnswers }) {
 
   return (
     <section className="results-page" aria-labelledby="results-heading">
-      <h2 id="results-heading" ref={headingRef} tabIndex={-1}>
+      <h1 id="results-heading" ref={headingRef} tabIndex={-1}>
         {gifts.length === 1 ? '1 gift idea for you' : `${gifts.length} gift ideas for you`}
-      </h2>
+      </h1>
       <p className="results-page__summary">{summary}</p>
       {/* Shown at the top and bottom so phone users don't have to scroll past every card. */}
       {gifts.length > 0 && <ChangeAnswersButton onClick={onChangeAnswers} />}
-      <GiftList gifts={gifts} onChangeAnswers={onChangeAnswers} />
+      <GiftList
+        gifts={gifts}
+        onChangeAnswers={onChangeAnswers}
+        tagsFor={(gift) => matchTags(gift, answers)}
+      />
       {gifts.length > 0 && <ChangeAnswersButton onClick={onChangeAnswers} />}
     </section>
   )
