@@ -1,0 +1,48 @@
+.gift-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1rem;
+  border: 1px solid #d0d7de;
+  border-radius: 12px;
+}
+
+.gift-card p {
+  margin: 0 0 0.75rem;
+}
+
+.gift-card__name {
+  margin: 0 0 0.25rem;
+  font-size: 1.15rem;
+}
+
+.gift-card__price {
+  color: #57606a;
+  font-weight: 600;
+}
+
+.gift-card__why {
+  padding: 0.5rem 0.75rem;
+  border-left: 4px solid #bf8700;
+  background-color: #fff8c5;
+}
+
+/* Looks like a button, but it's a link because it goes to another site. */
+.gift-card__link {
+  /* margin-top: auto pushes the link to the bottom, so links line up across cards. */
+  align-self: flex-start;
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: #0969da;
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.gift-card__link:hover {
+  background-color: #0550ae;
+}
