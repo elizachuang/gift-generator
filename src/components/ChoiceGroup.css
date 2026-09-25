@@ -1,0 +1,40 @@
+.choice-group {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  border: none;
+}
+
+.choice-group legend {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.choice-group__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Each option is a large, tappable pill (at least 44px tall for touch screens). */
+.choice-group__option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid #8c959f;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.choice-group__option:has(input:checked) {
+  border-color: #0969da;
+  background-color: #ddf4ff;
+  font-weight: 600;
+}
+
+.error-message {
+  margin: 0.5rem 0 0;
+  color: #cf222e;
+  font-weight: 600;
+}
