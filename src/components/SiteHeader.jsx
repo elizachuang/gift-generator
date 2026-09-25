@@ -5,7 +5,13 @@ function SiteHeader() {
   return (
     <header className="site-header">
       <div className="site-header__inner">
-        <img className="site-header__logo" src="/favicon.svg" alt="" width="32" height="32" />
+        <img
+          className="site-header__logo"
+          src={`${import.meta.env.BASE_URL}favicon.svg`}
+          alt=""
+          width="32"
+          height="32"
+        />
         <span className="site-header__name">Gift Generator</span>
       </div>
     </header>
