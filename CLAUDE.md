@@ -4,7 +4,7 @@
 This web helps people who need to give a gift to know what gift they are going to give.
 
 ## MVP boundary
-Build only the features listed in the MVP brief.
+Build only the features listed in the MVP brief (`docs/MVP_PLAN.md`).
 Do not add authentication, payments, external APIs, or a database unless I explicitly approve it.
 
 ## Code standards
