@@ -37,11 +37,24 @@ describe('App', () => {
     expect(screen.queryByRole('button', { name: 'Find gift ideas' })).not.toBeInTheDocument()
   })
 
+  it('offers "Change answers" both above and below the gift cards', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+    await fillAndSubmit(user)
+
+    const [topButton, bottomButton] = screen.getAllByRole('button', { name: 'Change answers' })
+    const cards = screen.getAllByRole('article')
+    const isBefore = (a, b) =>
+      Boolean(a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING)
+    expect(isBefore(topButton, cards[0])).toBe(true)
+    expect(isBefore(cards.at(-1), bottomButton)).toBe(true)
+  })
+
   it('goes back to the form with the answers kept', async () => {
     const user = userEvent.setup()
     render(<App />)
     await fillAndSubmit(user)
-    await user.click(screen.getByRole('button', { name: 'Change answers' }))
+    await user.click(screen.getAllByRole('button', { name: 'Change answers' })[0])
 
     expect(screen.getByRole('radio', { name: 'Birthday' })).toBeChecked()
     expect(screen.getByRole('radio', { name: 'Birthday' })).toHaveFocus()

@@ -5,6 +5,14 @@ import './ResultsPage.css'
 
 const labelOf = (options, id) => options.find((option) => option.id === id)?.label
 
+function ChangeAnswersButton({ onClick }) {
+  return (
+    <button type="button" className="secondary-button results-page__change" onClick={onClick}>
+      Change answers
+    </button>
+  )
+}
+
 function ResultsPage({ answers, gifts, onChangeAnswers }) {
   const headingRef = useRef(null)
 
@@ -25,12 +33,10 @@ function ResultsPage({ answers, gifts, onChangeAnswers }) {
         {gifts.length === 1 ? '1 gift idea for you' : `${gifts.length} gift ideas for you`}
       </h2>
       <p className="results-page__summary">{summary}</p>
+      {/* Shown at the top and bottom so phone users don't have to scroll past every card. */}
+      {gifts.length > 0 && <ChangeAnswersButton onClick={onChangeAnswers} />}
       <GiftList gifts={gifts} onChangeAnswers={onChangeAnswers} />
-      {gifts.length > 0 && (
-        <button type="button" className="secondary-button" onClick={onChangeAnswers}>
-          Change answers
-        </button>
-      )}
+      {gifts.length > 0 && <ChangeAnswersButton onClick={onChangeAnswers} />}
     </section>
   )
 }

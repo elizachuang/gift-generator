@@ -7,6 +7,10 @@
   color: #57606a;
 }
 
+.results-page__change {
+  margin-bottom: 1rem;
+}
+
 .gift-list {
   display: grid;
   gap: 1rem;
