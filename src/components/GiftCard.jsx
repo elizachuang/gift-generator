@@ -2,11 +2,19 @@ import { buyLink } from '../logic/buyLink.js'
 import { formatPrice } from '../logic/formatPrice.js'
 import './GiftCard.css'
 
-function GiftCard({ gift }) {
+function GiftCard({ gift, isTopPick = false, tags = [] }) {
   return (
-    <article className="gift-card">
-      <h3 className="gift-card__name">{gift.name}</h3>
+    <article className={isTopPick ? 'gift-card gift-card--top' : 'gift-card'}>
+      {isTopPick && <p className="gift-card__badge">★ Best match</p>}
+      <h2 className="gift-card__name">{gift.name}</h2>
       <p className="gift-card__price">{formatPrice(gift.price)}</p>
+      {tags.length > 0 && (
+        <ul className="gift-card__tags" aria-label="Matches">
+          {tags.map((tag) => (
+            <li key={tag}>{tag}</li>
+          ))}
+        </ul>
+      )}
       <p>{gift.description}</p>
       <p className="gift-card__why">
         <strong>Why it feels special: </strong>

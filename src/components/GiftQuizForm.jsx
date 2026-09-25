@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { BUDGETS, INTERESTS, OCCASIONS, RECIPIENTS } from '../data/options.js'
+import { OCCASION_ICONS } from '../illustrations/occasionIconMap.js'
 import ChoiceGroup from './ChoiceGroup.jsx'
 import './GiftQuizForm.css'
 
@@ -62,6 +63,7 @@ function GiftQuizForm({ initialAnswers, onSubmit, focusOnMount = false }) {
         name="occasion"
         legend="What's the occasion?"
         options={OCCASIONS}
+        icons={OCCASION_ICONS}
         value={answers.occasion}
         onChange={(value) => update('occasion', value)}
         error={errors.occasion}
@@ -89,7 +91,7 @@ function GiftQuizForm({ initialAnswers, onSubmit, focusOnMount = false }) {
         value={answers.interest}
         onChange={(value) => update('interest', value)}
       />
-      <button type="submit" className="gift-quiz-form__submit">
+      <button type="submit" className="primary-button gift-quiz-form__submit">
         Find gift ideas
       </button>
     </form>

@@ -1,14 +1,16 @@
-.results-page h2 {
+.results-page h1 {
   margin: 0 0 0.25rem;
+  font-size: 2rem;
 }
 
 .results-page__summary {
   margin: 0 0 1rem;
-  color: #57606a;
+  color: var(--color-muted);
+  font-weight: 600;
 }
 
 .results-page__change {
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .gift-list {
@@ -19,15 +21,26 @@
   list-style: none;
 }
 
-/* Two cards per row on wider screens. */
+/* Two cards per row on wider screens; the best match spans the full row. */
 @media (min-width: 40rem) {
   .gift-list {
     grid-template-columns: 1fr 1fr;
   }
+
+  .gift-list__top {
+    grid-column: 1 / -1;
+  }
 }
 
 .empty-state {
-  padding: 1rem;
-  border: 1px dashed #8c959f;
-  border-radius: 12px;
+  padding: 1.5rem;
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+  text-align: center;
+}
+
+.empty-state__illustration {
+  width: 140px;
+  height: auto;
 }

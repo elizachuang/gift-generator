@@ -1,0 +1,46 @@
+.hero {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem 1.25rem;
+  border-radius: var(--radius-large);
+  background: linear-gradient(135deg, var(--color-primary-soft), var(--color-accent-soft));
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2rem;
+  line-height: 1.15;
+}
+
+.hero__lead {
+  margin: 0 0 1.25rem;
+  font-size: 1.1rem;
+}
+
+.hero__illustration {
+  width: 180px;
+  height: auto;
+}
+
+/* Side by side on wider screens. */
+@media (min-width: 40rem) {
+  .hero {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem;
+    text-align: left;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero__illustration {
+    flex-shrink: 0;
+    width: 220px;
+  }
+}

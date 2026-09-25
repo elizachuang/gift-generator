@@ -13,9 +13,19 @@ async function fillAndSubmit(user) {
 }
 
 describe('App', () => {
-  it('shows the site heading', () => {
+  it('shows the brand name and a welcome heading', () => {
     render(<App />)
-    expect(screen.getByRole('heading', { level: 1, name: 'Gift Generator' })).toBeInTheDocument()
+    expect(screen.getByRole('banner')).toHaveTextContent('Gift Generator')
+    expect(
+      screen.getByRole('heading', { level: 1, name: 'Find a gift they’ll love' }),
+    ).toBeInTheDocument()
+  })
+
+  it('moves focus to the first question when "Find a gift" is pressed', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+    await user.click(screen.getByRole('button', { name: 'Find a gift' }))
+    expect(screen.getByRole('radio', { name: 'Birthday' })).toHaveFocus()
   })
 
   it('shows the matching gift cards after the quiz is submitted', async () => {
@@ -27,14 +37,15 @@ describe('App', () => {
       { occasion: 'birthday', recipient: 'coworker', budget: '20-50', interest: 'any' },
       gifts,
     )
-    const heading = screen.getByRole('heading', { level: 2 })
+    const heading = screen.getByRole('heading', { level: 1 })
     expect(heading).toHaveTextContent(`${expected.length} gift ideas for you`)
     expect(heading).toHaveFocus()
     expect(screen.getByText('Birthday · Coworker · €20–50')).toBeInTheDocument()
-    expect(screen.getAllByRole('heading', { level: 3 }).map((h) => h.textContent)).toEqual(
+    expect(screen.getAllByRole('heading', { level: 2 }).map((h) => h.textContent)).toEqual(
       expected.map((gift) => gift.name),
     )
     expect(screen.queryByRole('button', { name: 'Find gift ideas' })).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'Find a gift' })).not.toBeInTheDocument()
   })
 
   it('offers "Change answers" both above and below the gift cards', async () => {

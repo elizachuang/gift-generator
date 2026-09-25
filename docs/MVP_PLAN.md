@@ -58,7 +58,8 @@ No environment variables or secrets are needed, because nothing calls a paid or 
 
 **Components:**
 
-- `Header`: site name
+- `SiteHeader`: brand bar (logo and site name)
+- `Hero`: welcome section with the main heading, an illustration and a "Find a gift" button that jumps to the first question
 - `GiftQuizForm`: holds the questions and the submit button
   - `ChoiceGroup`: one reusable labelled radio group, used for occasion, recipient, budget and interest (keyboard-accessible because it's built on native radios)
 - `GiftList`: renders the cards, or an empty state
@@ -152,6 +153,7 @@ Matching rule (simple and explainable): a gift must match the occasion, the budg
 - Market: Netherlands, Belgium, Germany
 - Buy links: Google Shopping search
 - Site language: English
+- Look: playful and bright. Colour and font tokens live in `src/index.css`; the fonts (Fredoka, Nunito) are self-hosted; the illustrations in `src/illustrations/` are original SVGs
 - Hosting: Netlify (free tier, works with the private repo; production branch `main`; settings in `netlify.toml`)
 
 **Risk from the link choice:** a Google Shopping search can show unrelated or off-budget items. _Mitigation:_ write specific search queries, and in the user tests (M7) check that a tester can reach a buyable product within 1–2 clicks. If they can't, switch to bol.com/amazon.de links.
